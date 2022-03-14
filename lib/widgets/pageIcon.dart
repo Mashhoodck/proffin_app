@@ -1,12 +1,9 @@
-// ignore_for_file: file_names
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:proffin_app/utils/dimensions.dart';
 
 class PageIcon extends StatelessWidget {
   final SvgPicture pageIcon;
-
   const PageIcon({
     Key? key,
     required this.pageIcon,

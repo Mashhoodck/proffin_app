@@ -1,11 +1,8 @@
-// ignore: file_names
 import 'package:flutter/material.dart';
 import 'package:proffin_app/screens/addItems.dart';
-import 'package:proffin_app/screens/paymentscree.dart';
 import 'package:proffin_app/utils/colors.dart';
 import 'package:proffin_app/utils/dimensions.dart';
 import 'package:proffin_app/widgets/roundedButton.dart';
-import 'package:proffin_app/widgets/searchFieldFilledColor.dart';
 
 class CompanyList extends StatefulWidget {
   const CompanyList({Key? key}) : super(key: key);

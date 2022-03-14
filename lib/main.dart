@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-
+import 'package:get/route_manager.dart';
 import 'package:proffin_app/screens/registerDomainScreen.dart';
-import 'package:get/get.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,13 +14,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Proffin',
+      title: 'Proffin App',
       theme: ThemeData(
-        primaryColor: Colors.black,
+        // This is the theme of your application.
+
+        primarySwatch: Colors.blue,
       ),
       home: const RegisterDomainScreen(),
     );
-
-    // RegisterDomainScreen
   }
 }

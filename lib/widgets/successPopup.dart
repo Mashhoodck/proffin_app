@@ -1,5 +1,3 @@
-// ignore_for_file: file_names
-
 import 'package:flutter/material.dart';
 import 'package:proffin_app/screens/addItems.dart';
 import 'package:proffin_app/utils/colors.dart';

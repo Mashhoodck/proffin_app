@@ -1,6 +1,4 @@
-// ignore: file_names
 import 'package:flutter/material.dart';
-import 'package:proffin_app/utils/dimensions.dart';
 
 class AuthenticButton extends StatelessWidget {
   final String btnText;
@@ -17,9 +15,10 @@ class AuthenticButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
     return FlatButton(
       padding: EdgeInsets.all(16),
-      minWidth: Dimensions.height150,
+      minWidth: size.width * 0.4,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
       onPressed: btnpress,
       color: btnColor,

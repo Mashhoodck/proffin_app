@@ -1,6 +1,5 @@
-// ignore: file_names
-
 import 'package:flutter/material.dart';
+
 import 'package:proffin_app/screens/paymentscree.dart';
 import 'package:proffin_app/utils/colors.dart';
 import 'package:proffin_app/utils/dimensions.dart';
@@ -17,166 +16,184 @@ class AddItems extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
     return Scaffold(
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              Container(
-                color: AppColors.textFieldsColor,
-                child: Container(
-                  margin: EdgeInsets.only(
-                      left: Dimensions.width20,
-                      right: Dimensions.width20,
-                      top: Dimensions.height15),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      CustomAppbar(
-                        tittle: "Add Items",
-                      ),
-                      SizedBox(
-                        height: Dimensions.height30,
-                      ),
-                      Text(
-                        "Customer Name",
-                        style: TextStyle(color: AppColors.fadeText),
-                      ),
-                      SizedBox(
-                        height: Dimensions.height10,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Container(
-                            child: Row(
-                              children: [
-                                Text(
-                                  "ABC Store",
-                                  style: TextStyle(
-                                      fontSize: Dimensions.font20,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                                SizedBox(
-                                  width: Dimensions.width10,
-                                ),
-                                Text(
-                                  "(Bal : \$10012)",
-                                  style: TextStyle(color: AppColors.fadeText),
-                                )
-                              ],
-                            ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Container(
+              color: AppColors.textFieldsColor,
+              child: Container(
+                margin: EdgeInsets.only(
+                    left: size.width * 0.03,
+                    right: size.width * 0.03,
+                    top: size.width * 0.03),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    CustomAppbar(
+                      tittle: "Add Items",
+                    ),
+                    SizedBox(height: size.height * 0.02),
+                    Text(
+                      "Customer Name",
+                      style: TextStyle(color: AppColors.fadeText),
+                    ),
+                    SizedBox(
+                      height: size.height * 0.01,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Container(
+                          child: Row(
+                            children: [
+                              Text(
+                                "ABC Store",
+                                style: TextStyle(
+                                    fontSize: 12, fontWeight: FontWeight.bold),
+                              ),
+                              SizedBox(
+                                width: size.width * 0.03,
+                              ),
+                              Text(
+                                "(Bal : \$10012)",
+                                style: TextStyle(color: AppColors.fadeText),
+                              )
+                            ],
                           ),
-                          GestureDetector(
-                            child: Icon(Icons.person_add),
-                            onTap: () {
-                              showDialog(
-                                context: context,
-                                builder: (context) => CompanyList(),
-                              );
-                            },
-                          )
-                        ],
-                      ),
-                      Divider(
-                        thickness: 1,
-                      ),
-                      SizedBox(
-                        height: Dimensions.height20,
-                      ),
-                      SearchField(
-                        fillColor: Colors.white,
-                        labelText: "Add Items",
-                        prefixIcon: Icon(
-                          Icons.search,
-                          color: Colors.black,
                         ),
+                        GestureDetector(
+                          child: Icon(Icons.person_add),
+                          onTap: () {
+                            showDialog(
+                              context: context,
+                              builder: (context) => CompanyList(),
+                            );
+                          },
+                        )
+                      ],
+                    ),
+                    Divider(
+                      thickness: 1,
+                    ),
+                    SizedBox(
+                      height: size.height * 0.02,
+                    ),
+                    SearchField(
+                      fillColor: Colors.white,
+                      labelText: "Add Items",
+                      prefixIcon: Icon(
+                        Icons.search,
+                        color: Colors.black,
                       ),
-                      SizedBox(
-                        height: Dimensions.height20,
-                      )
-                    ],
+                    ),
+                    SizedBox(
+                      height: size.height * 0.02,
+                    )
+                  ],
+                ),
+              ),
+            ),
+            SizedBox(
+              height: size.height * 0.01,
+            ),
+            Container(
+              height: 200,
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    ContainerTile(),
+                    SizedBox(height: Dimensions.height10),
+                    ContainerTile(),
+                    SizedBox(height: Dimensions.height10),
+                    ContainerTile(),
+                    SizedBox(
+                      height: Dimensions.height10,
+                    ),
+                    ContainerTile(),
+                    SizedBox(height: Dimensions.height10),
+                    ContainerTile(),
+                    SizedBox(height: Dimensions.height10),
+                    ContainerTile(),
+                  ],
+                ),
+              ),
+            ),
+            Divider(),
+            SizedBox(
+              height: size.height * 0.04,
+            ),
+            Container(
+              color: AppColors.textFieldsColor,
+              child: Column(
+                children: [
+                  SizedBox(
+                    height: size.height * 0.0,
                   ),
-                ),
-              ),
-              SizedBox(
-                height: Dimensions.height30,
-              ),
-              ContainerTile(
-                btnclick: () {
-                  showDialog(
-                    context: context,
-                    builder: (context) => ProductPopup(),
-                  );
-                },
-              ),
-              SizedBox(
-                height: Dimensions.height10,
-              ),
-              ContainerTile(),
-              SizedBox(
-                height: Dimensions.height10,
-              ),
-              ContainerTile(),
-              SizedBox(
-                height: Dimensions.height10,
-              ),
-              SizedBox(
-                height: Dimensions.height10,
-              ),
-              SizedBox(
-                height: Dimensions.height80,
-              ),
-              Divider(
-                thickness: 1,
-              ),
-              SizedBox(
-                height: Dimensions.height30,
-              ),
-              Container(
-                margin: EdgeInsets.only(
-                    left: Dimensions.width20, right: Dimensions.width20),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    ContainerTag(tagText: "Items: 3"),
-                    ContainerTag(
-                      tagText: "Quantity : 123",
+                  Container(
+                    margin: EdgeInsets.only(
+                        left: size.width * 0.03, right: size.width * 0.03),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        ContainerTag(
+                          tagText: "Items: 3",
+                          tagColor: AppColors.mainColor,
+                        ),
+                        ContainerTag(
+                          tagText: "Quantity : 123",
+                          tagColor: AppColors.mainColor,
+                        ),
+                        ContainerTag(
+                            tagText: "Amount : \$ 123",
+                            tagColor: AppColors.mainColor)
+                      ],
                     ),
-                    ContainerTag(tagText: "Amount : \$ 123")
-                  ],
-                ),
-              ),
-              SizedBox(
-                height: Dimensions.height10,
-              ),
-              Container(
-                margin: EdgeInsets.only(
-                    left: Dimensions.height80, right: Dimensions.height80),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    ContainerTag(tagText: "Tax: \$ 13"),
-                    ContainerTag(
-                      tagText: "Net Total :\$ 143",
+                  ),
+                  SizedBox(
+                    height: size.height * 0.04,
+                  ),
+                  Container(
+                    margin: EdgeInsets.only(
+                        left: size.width * 0.03, right: size.width * 0.03),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        ContainerTag(
+                            tagText: "Tax: \$ 13",
+                            tagColor: AppColors.mainColor),
+                        ContainerTag(
+                            tagText: "Net Total :\$ 143",
+                            tagColor: AppColors.mainColor),
+                        SizedBox(
+                          height: size.height * 0.04,
+                        ),
+                      ],
                     ),
-                  ],
-                ),
+                  ),
+                  SizedBox(
+                    height: size.height * 0.04,
+                  ),
+                  Container(
+                    width: double.maxFinite,
+                    child: AuthenticButton(
+                      btnText: "Next",
+                      btnColor: AppColors.greenColor,
+                      btnTextColor: AppColors.whiteText,
+                      btnpress: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => PaymentScreen()));
+                      },
+                    ),
+                  ),
+                ],
               ),
-              SizedBox(
-                height: Dimensions.height20,
-              ),
-              AuthenticButton(
-                btnText: "Next",
-                btnColor: AppColors.mainColor,
-                btnTextColor: AppColors.whiteText,
-                btnpress: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => PaymentScreen()));
-                },
-              )
-            ],
-          ),
+            )
+          ],
         ),
       ),
     );

@@ -1,7 +1,4 @@
-// ignore_for_file: file_names
-
 import 'package:flutter/material.dart';
-import 'package:proffin_app/utils/dimensions.dart';
 
 class RoundedWhiteTexhField extends StatelessWidget {
   final Color fillColor;
@@ -16,9 +13,10 @@ class RoundedWhiteTexhField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
     return Container(
       margin:
-          EdgeInsets.only(left: Dimensions.width50, right: Dimensions.width50),
+          EdgeInsets.only(left: size.width * 0.03, right: size.width * 0.03),
       child: TextField(
         autofocus: false,
         decoration: InputDecoration(
@@ -27,13 +25,13 @@ class RoundedWhiteTexhField extends StatelessWidget {
           filled: true,
           fillColor: fillColor,
           contentPadding: EdgeInsets.only(
-              left: Dimensions.width10,
-              right: Dimensions.width10,
-              top: Dimensions.height10,
-              bottom: Dimensions.height10),
+              left: size.width * 0.03,
+              right: size.width * 0.03,
+              top: size.width * 0.03,
+              bottom: size.width * 0.03),
           focusedBorder: OutlineInputBorder(
               borderSide: BorderSide(color: Colors.white),
-              borderRadius: BorderRadius.circular(Dimensions.radius15)),
+              borderRadius: BorderRadius.circular(10)),
           enabledBorder: UnderlineInputBorder(
             borderSide: BorderSide(color: Colors.white),
             borderRadius: BorderRadius.circular(8),

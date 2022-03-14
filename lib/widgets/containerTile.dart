@@ -1,4 +1,3 @@
-// ignore: file_names
 import 'package:flutter/material.dart';
 import 'package:proffin_app/utils/colors.dart';
 import 'package:proffin_app/utils/dimensions.dart';
@@ -18,8 +17,8 @@ class ContainerTile extends StatelessWidget {
             top: Dimensions.height20,
             bottom: Dimensions.height20),
         margin: EdgeInsets.only(
-          left: Dimensions.width30,
-          right: Dimensions.width30,
+          left: Dimensions.width10,
+          right: Dimensions.width10,
         ),
         decoration: BoxDecoration(
             color: AppColors.textFieldsColor,

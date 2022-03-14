@@ -1,12 +1,9 @@
-// ignore: file_names
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
+import 'package:google_fonts/google_fonts.dart';
 import 'package:proffin_app/screens/addItems.dart';
 import 'package:proffin_app/utils/colors.dart';
-import 'package:proffin_app/utils/dimensions.dart';
 import 'package:proffin_app/widgets/buttonWidget.dart';
-import 'package:proffin_app/widgets/pageIcon.dart';
 import 'package:proffin_app/widgets/pageText.dart';
 import 'package:proffin_app/widgets/textFields.dart';
 
@@ -15,8 +12,7 @@ class OtpVerification extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print(Dimensions.screenWidth);
-    print(Dimensions.screenHeight);
+    var size = MediaQuery.of(context).size;
     return Scaffold(
         backgroundColor: Colors.white,
         body: Center(
@@ -24,35 +20,33 @@ class OtpVerification extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                PageIcon(
-                  pageIcon: SvgPicture.asset("assets/icons/lockicon.svg"),
-                ),
                 SizedBox(
-                  height: Dimensions.height10,
+                  height: size.height * 0.3,
+                  child: SvgPicture.asset("assets/icons/lockicon.svg"),
                 ),
+                SizedBox(height: size.height * 0.03),
                 TextHeading(
                   title: "OTP Verification",
-                  textColor: Colors.black,
-                  textSize: 25,
+                  style:
+                      GoogleFonts.notoSans(fontSize: 25, color: Colors.black),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 TextHeading(
                   title: "Enter to start your session",
-                  textColor: Colors.black,
-                  textSize: 15,
+                  style: GoogleFonts.roboto(fontSize: 15, color: Colors.black),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
-                TextFieldsLogin(
+                const TextFieldsLogin(
                   labeText: "hint",
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
-                TextFieldsLogin(
+                const TextFieldsLogin(
                   labeText: "Password",
                   sufixIcon: Icon(
                     Icons.visibility,
