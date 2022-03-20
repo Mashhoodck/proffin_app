@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:proffin_app/screens/addItems.dart';
 import 'package:proffin_app/utils/colors.dart';
 import 'package:proffin_app/utils/dimensions.dart';
 
@@ -8,17 +9,21 @@ class ContainerTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
     return GestureDetector(
-      onTap: btnclick,
+      onTap: () {
+        showDialog(context: context, builder: (context) => ProductPopup());
+      },
       child: Container(
         padding: EdgeInsets.only(
-            left: Dimensions.width20,
-            right: Dimensions.width20,
-            top: Dimensions.height20,
-            bottom: Dimensions.height20),
+          left: size.width * 0.03,
+          right: size.width * 0.03,
+          top: size.width * 0.03,
+          bottom: size.width * 0.03,
+        ),
         margin: EdgeInsets.only(
-          left: Dimensions.width10,
-          right: Dimensions.width10,
+          left: size.width * 0.01,
+          right: size.width * 0.01,
         ),
         decoration: BoxDecoration(
             color: AppColors.textFieldsColor,
@@ -36,7 +41,7 @@ class ContainerTile extends StatelessWidget {
               ],
             ),
             SizedBox(
-              height: Dimensions.height10,
+              height: size.width * 0.01,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,

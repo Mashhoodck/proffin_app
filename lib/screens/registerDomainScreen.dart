@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:proffin_app/screens/loginScreen.dart';
@@ -19,21 +20,22 @@ class RegisterDomainScreen extends StatelessWidget {
           child: SingleChildScrollView(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 SizedBox(
                   height: size.height * 0.3,
                   child: SvgPicture.asset("assets/icons/linkicon.svg"),
                 ),
-                const SizedBox(
-                  height: 20,
+                SizedBox(
+                  height: size.height * 0.02,
                 ),
                 TextHeading(
                   title: "Link your Company Domain",
                   style: GoogleFonts.notoSans(
-                      fontSize: 25, color: AppColors.mainColor),
+                      fontSize: 20, color: AppColors.mainColor),
                 ),
-                const SizedBox(
-                  height: 10,
+                SizedBox(
+                  height: size.height * 0.02,
                 ),
                 TextHeading(
                   title:
@@ -41,15 +43,15 @@ class RegisterDomainScreen extends StatelessWidget {
                   style: GoogleFonts.roboto(
                       fontSize: 15, color: AppColors.fadeText),
                 ),
-                const SizedBox(
-                  height: 10,
+                SizedBox(
+                  height: size.height * 0.02,
                 ),
                 RoundedWhiteTexhField(
-                  labelText: "Enter Your Domain",
+                  labelText: "Enter your Domain",
                   fillColor: AppColors.textFieldsColor,
                 ),
                 SizedBox(
-                  height: 30,
+                  height: size.height * 0.03,
                 ),
                 AuthenticButton(
                   btnpress: () {
@@ -63,7 +65,7 @@ class RegisterDomainScreen extends StatelessWidget {
                   btnTextColor: AppColors.textFieldsColor,
                 ),
                 SizedBox(
-                  height: 100,
+                  height: size.height * 0.09,
                 ),
                 Text(
                   "Needhelp",

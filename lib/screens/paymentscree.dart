@@ -1,11 +1,16 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:proffin_app/screens/printInvoice.dart';
 import 'package:proffin_app/utils/colors.dart';
 import 'package:proffin_app/utils/dimensions.dart';
+import 'package:proffin_app/widgets/bottomBar.dart';
 import 'package:proffin_app/widgets/buttonWidget.dart';
 import 'package:proffin_app/widgets/containertags.dart';
 import 'package:proffin_app/widgets/searchFieldFilledColor.dart';
+import 'package:proffin_app/widgets/successPopup.dart';
 
 class PaymentScreen extends StatelessWidget {
   const PaymentScreen({Key? key}) : super(key: key);
@@ -33,75 +38,20 @@ class PaymentScreen extends StatelessWidget {
           ],
         ),
         body: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            PaymentScreenWidget(),
-            Container(
-                color: AppColors.textFieldsColor,
-                child: Column(
-                  children: [
-                    SizedBox(
-                      height: Dimensions.height20,
-                    ),
-                    Container(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          ContainerTag(
-                            tagText: "Items :3",
-                            tagColor: AppColors.mainColor,
-                          ),
-                          ContainerTag(
-                              tagText: "Quantity : 123",
-                              tagColor: AppColors.mainColor),
-                          ContainerTag(
-                              tagText: "Amount : 123",
-                              tagColor: AppColors.mainColor)
-                        ],
-                      ),
-                    ),
-                    SizedBox(
-                      height: Dimensions.height15,
-                    ),
-                    Container(
-                      margin: EdgeInsets.only(
-                          left: Dimensions.width50, right: Dimensions.width50),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          ContainerTag(
-                            tagText: "Items :3",
-                            tagColor: AppColors.mainColor,
-                          ),
-                          ContainerTag(
-                              tagText: "Quantity : 123",
-                              tagColor: AppColors.mainColor),
-                        ],
-                      ),
-                    ),
-                    SizedBox(
-                      height: Dimensions.height20,
-                    ),
-                    Container(
-                      width: double.maxFinite,
-                      padding: EdgeInsets.only(left: 10, right: 10),
-                      child: AuthenticButton(
-                        btnText: "Next",
-                        btnColor: AppColors.greenColor,
-                        btnTextColor: AppColors.whiteText,
-                        btnpress: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => PrintScreen()));
-                        },
-                      ),
-                    ),
-                    SizedBox(
-                      height: Dimensions.height10,
-                    )
-                  ],
-                ))
+            Expanded(
+                child: Container(
+                    margin: EdgeInsets.only(left: 10.h, right: 10.h),
+                    child: PaymentScreenWidget())),
+            BottombarCustom(
+              btnText: "Print",
+              btnclick: () {
+                showDialog(
+                  context: context,
+                  builder: (context) => SuccessDilogue(),
+                );
+              },
+            )
           ],
         ),
       ),
@@ -142,6 +92,9 @@ class _PaymentScreenWidgetState extends State<PaymentScreenWidget> {
                         fontSize: Dimensions.font20,
                         fontWeight: FontWeight.bold),
                   ),
+                  SizedBox(
+                    height: 20.h,
+                  ),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -160,7 +113,6 @@ class _PaymentScreenWidgetState extends State<PaymentScreenWidget> {
                                 ),
                                 Text(
                                   "Bank Transfer",
-                                  style: TextStyle(fontWeight: FontWeight.bold),
                                 ),
                               ],
                             ),
@@ -192,7 +144,6 @@ class _PaymentScreenWidgetState extends State<PaymentScreenWidget> {
                                 ),
                                 Text(
                                   "Cash",
-                                  style: TextStyle(fontWeight: FontWeight.bold),
                                 ),
                               ],
                             ),
@@ -224,7 +175,6 @@ class _PaymentScreenWidgetState extends State<PaymentScreenWidget> {
                                 ),
                                 Text(
                                   "Cheque",
-                                  style: TextStyle(fontWeight: FontWeight.bold),
                                 ),
                               ],
                             ),
@@ -245,7 +195,7 @@ class _PaymentScreenWidgetState extends State<PaymentScreenWidget> {
 
                   //discount widget
                   SizedBox(
-                    height: Dimensions.height20,
+                    height: 20.h,
                   ),
                   Text(
                     "Discount",
@@ -264,11 +214,9 @@ class _PaymentScreenWidgetState extends State<PaymentScreenWidget> {
                       children: [
                         Text(
                           "Total Amount",
-                          style: TextStyle(fontWeight: FontWeight.bold),
                         ),
                         Text(
                           "\$29",
-                          style: TextStyle(fontWeight: FontWeight.bold),
                         )
                       ],
                     ),
@@ -284,11 +232,9 @@ class _PaymentScreenWidgetState extends State<PaymentScreenWidget> {
                       children: [
                         Text(
                           "Total Tax Amount",
-                          style: TextStyle(fontWeight: FontWeight.bold),
                         ),
                         Text(
                           "\$29",
-                          style: TextStyle(fontWeight: FontWeight.bold),
                         )
                       ],
                     ),
@@ -304,7 +250,6 @@ class _PaymentScreenWidgetState extends State<PaymentScreenWidget> {
                       children: [
                         Text(
                           "Discount",
-                          style: TextStyle(fontWeight: FontWeight.bold),
                         ),
                         Container(
                             width: 100,
@@ -316,7 +261,7 @@ class _PaymentScreenWidgetState extends State<PaymentScreenWidget> {
                     ),
                   ),
                   SizedBox(
-                    height: Dimensions.height15,
+                    height: 20.h,
                   ),
                   Container(
                     margin: EdgeInsets.only(
@@ -326,11 +271,9 @@ class _PaymentScreenWidgetState extends State<PaymentScreenWidget> {
                       children: [
                         Text(
                           "Total Amount  (Iclude Vat) ",
-                          style: TextStyle(fontWeight: FontWeight.bold),
                         ),
                         Text(
                           "\$29",
-                          style: TextStyle(fontWeight: FontWeight.bold),
                         )
                       ],
                     ),
@@ -339,7 +282,7 @@ class _PaymentScreenWidgetState extends State<PaymentScreenWidget> {
                   //Credit or Debit
 
                   SizedBox(
-                    height: Dimensions.height20,
+                    height: 20.h,
                   ),
                   Text(
                     "Credit Or Debit",
@@ -361,7 +304,6 @@ class _PaymentScreenWidgetState extends State<PaymentScreenWidget> {
                             ),
                             Text(
                               "Credit",
-                              style: TextStyle(fontWeight: FontWeight.bold),
                             ),
                           ],
                         ),
@@ -392,7 +334,6 @@ class _PaymentScreenWidgetState extends State<PaymentScreenWidget> {
                             ),
                             Text(
                               "Debit",
-                              style: TextStyle(fontWeight: FontWeight.bold),
                             ),
                           ],
                         ),
@@ -418,7 +359,6 @@ class _PaymentScreenWidgetState extends State<PaymentScreenWidget> {
                       children: [
                         Text(
                           "Advance",
-                          style: TextStyle(fontWeight: FontWeight.bold),
                         ),
                         Container(
                             width: 100,
@@ -440,7 +380,6 @@ class _PaymentScreenWidgetState extends State<PaymentScreenWidget> {
                       children: [
                         Text(
                           "Due Date",
-                          style: TextStyle(fontWeight: FontWeight.bold),
                         ),
                         Container(
                             width: 100,
@@ -452,7 +391,7 @@ class _PaymentScreenWidgetState extends State<PaymentScreenWidget> {
                     ),
                   ),
                   SizedBox(
-                    height: Dimensions.height20,
+                    height: 20.h,
                   ),
                   Container(
                     margin: EdgeInsets.only(
@@ -462,14 +401,13 @@ class _PaymentScreenWidgetState extends State<PaymentScreenWidget> {
                       children: [
                         Text(
                           "Total Amount  (Iclude Vat) ",
-                          style: TextStyle(fontWeight: FontWeight.bold),
                         ),
                         Text("\$29")
                       ],
                     ),
                   ),
                   SizedBox(
-                    height: Dimensions.height30,
+                    height: 20.h,
                   ),
                 ],
               ),

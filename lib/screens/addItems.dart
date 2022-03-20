@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:proffin_app/screens/paymentscree.dart';
 import 'package:proffin_app/utils/colors.dart';
 import 'package:proffin_app/utils/dimensions.dart';
+import 'package:proffin_app/widgets/bottomBar.dart';
 import 'package:proffin_app/widgets/buttonWidget.dart';
 import 'package:proffin_app/widgets/companyListPopup.dart';
 import 'package:proffin_app/widgets/containerTile.dart';
@@ -20,7 +22,7 @@ class AddItems extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Container(
               color: AppColors.textFieldsColor,
@@ -100,7 +102,7 @@ class AddItems extends StatelessWidget {
               height: size.height * 0.01,
             ),
             Container(
-              height: 200,
+              height: size.height * 0.50,
               child: SingleChildScrollView(
                 child: Column(
                   children: [
@@ -125,74 +127,12 @@ class AddItems extends StatelessWidget {
             SizedBox(
               height: size.height * 0.04,
             ),
-            Container(
-              color: AppColors.textFieldsColor,
-              child: Column(
-                children: [
-                  SizedBox(
-                    height: size.height * 0.0,
-                  ),
-                  Container(
-                    margin: EdgeInsets.only(
-                        left: size.width * 0.03, right: size.width * 0.03),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        ContainerTag(
-                          tagText: "Items: 3",
-                          tagColor: AppColors.mainColor,
-                        ),
-                        ContainerTag(
-                          tagText: "Quantity : 123",
-                          tagColor: AppColors.mainColor,
-                        ),
-                        ContainerTag(
-                            tagText: "Amount : \$ 123",
-                            tagColor: AppColors.mainColor)
-                      ],
-                    ),
-                  ),
-                  SizedBox(
-                    height: size.height * 0.04,
-                  ),
-                  Container(
-                    margin: EdgeInsets.only(
-                        left: size.width * 0.03, right: size.width * 0.03),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        ContainerTag(
-                            tagText: "Tax: \$ 13",
-                            tagColor: AppColors.mainColor),
-                        ContainerTag(
-                            tagText: "Net Total :\$ 143",
-                            tagColor: AppColors.mainColor),
-                        SizedBox(
-                          height: size.height * 0.04,
-                        ),
-                      ],
-                    ),
-                  ),
-                  SizedBox(
-                    height: size.height * 0.04,
-                  ),
-                  Container(
-                    width: double.maxFinite,
-                    child: AuthenticButton(
-                      btnText: "Next",
-                      btnColor: AppColors.greenColor,
-                      btnTextColor: AppColors.whiteText,
-                      btnpress: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => PaymentScreen()));
-                      },
-                    ),
-                  ),
-                ],
-              ),
-            )
+            BottombarCustom(
+                btnText: "Next",
+                btnclick: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => PaymentScreen()));
+                })
           ],
         ),
       ),

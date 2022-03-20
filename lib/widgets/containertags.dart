@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:proffin_app/utils/colors.dart';
 import 'package:proffin_app/utils/dimensions.dart';
 
@@ -12,15 +13,18 @@ class ContainerTag extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
+
     return Container(
       decoration: BoxDecoration(
           color: AppColors.mainColor,
           borderRadius: BorderRadius.circular(Dimensions.radius15)),
       padding: EdgeInsets.only(
-          left: Dimensions.width15,
-          right: Dimensions.width15,
-          top: Dimensions.height10,
-          bottom: Dimensions.height10),
+        left: size.width * 0.02,
+        right: size.width * 0.02,
+        top: size.width * 0.02,
+        bottom: size.width * 0.02,
+      ),
       child: Text(
         tagText,
         style: TextStyle(color: Colors.white),
