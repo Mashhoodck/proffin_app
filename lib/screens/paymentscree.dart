@@ -69,9 +69,9 @@ class PaymentScreenWidget extends StatefulWidget {
 }
 
 class _PaymentScreenWidgetState extends State<PaymentScreenWidget> {
+  int? _value = 1;
   @override
   Widget build(BuildContext context) {
-    int? _value = 1;
     Color _RradioButtunColor = Colors.black;
     return Container(
       height: Dimensions.height400,
